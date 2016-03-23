@@ -17,6 +17,8 @@ public class RPSPanel extends JPanel
 	public int RPC;
 	public int RANDOMRPC;
 	public boolean MODE;
+	public int LOSES;
+	public int WINS;
 	private RPSController baseController;
 	private JButton ROCK;
 	private JButton PAPER;
@@ -27,7 +29,10 @@ public class RPSPanel extends JPanel
 	private JButton PlayerModeComputer;
 	private JButton PlayerModePVP;
 	private JTextField Result;
+	private JTextField WVL;
 	private SpringLayout baseLayout;
+	
+	
 
 	
 	
@@ -35,6 +40,8 @@ public class RPSPanel extends JPanel
 	public RPSPanel (RPSController baseController)
 	{
 		
+		WINS=0;
+		LOSES=0;
 		this.baseController = baseController;
 		
 		baseLayout = new SpringLayout();
@@ -47,6 +54,9 @@ public class RPSPanel extends JPanel
 		PlayerModePVP = new JButton("Change to PVP");
 		PlayerModeComputer = new JButton("Change to Computer");
 		Result = new JTextField ("     ");
+		WVL = new JTextField ("WIN:" + WINS + " LOSES:" + LOSES);
+		baseLayout.putConstraint(SpringLayout.SOUTH, WVL, -6, SpringLayout.NORTH, Result);
+		baseLayout.putConstraint(SpringLayout.EAST, WVL, 0, SpringLayout.EAST, PAPERP2);
 		
 		setupPanel();
 		setupLayout();
@@ -56,6 +66,7 @@ public class RPSPanel extends JPanel
 	private void setupPanel()
 		{
 		
+			this.add(WVL);
 			this.add(ROCK);
 			this.add(PAPER);
 			this.add(SCISSORS);
@@ -136,10 +147,14 @@ public class RPSPanel extends JPanel
 						else if (RANDOMRPC == 1)
 						{
 							Result.setText("YOU LOSE");
+							LOSES ++;
+							WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 						}
 						else
 						{
 							Result.setText("YOU WIN");
+							WINS ++;
+							WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 						}
 					}
 					else
@@ -167,10 +182,14 @@ public class RPSPanel extends JPanel
 					else if (RANDOMRPC == 2)
 					{
 						Result.setText ("YOU LOSE");
+						LOSES ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 					else
 					{
 						Result.setText ("YOU WIN");
+						WINS ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 				}
 				else
@@ -200,10 +219,14 @@ public class RPSPanel extends JPanel
 					else if (RANDOMRPC == 0)
 					{
 						Result.setText ("YOU LOSE");
+						LOSES ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 					else
 					{
 						Result.setText("YOU WIN");
+						WINS ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 				}
 				else
@@ -236,10 +259,14 @@ public class RPSPanel extends JPanel
 					else if (RPC == 1)
 					{
 						Result.setText("P2: YOU LOSE");
+						WINS ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 					else
 					{
 						Result.setText("P2: YOU WIN");
+						LOSES ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 				}
 			}
@@ -265,10 +292,14 @@ public class RPSPanel extends JPanel
 					else if (RPC == 2)
 					{
 						Result.setText ("P2: YOU LOSE");
+						WINS ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 					else
 					{
 						Result.setText ("P2: YOU WIN");
+						LOSES ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 				}
 			}
@@ -294,10 +325,14 @@ public class RPSPanel extends JPanel
 					else if (RANDOMRPC == 0)
 					{
 						Result.setText ("P2: YOU LOSE");
+						WINS ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 					else
 					{
 						Result.setText("P2: YOU WIN");
+						LOSES ++;
+						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
 				}
 			}
