@@ -14,6 +14,7 @@ import java.awt.event.*;
 
 public class RPSPanel extends JPanel
 {
+	public int kevin;
 	public int RPC;
 	public int RANDOMRPC;
 	public boolean MODE;
@@ -39,7 +40,7 @@ public class RPSPanel extends JPanel
 	
 	public RPSPanel (RPSController baseController)
 	{
-		
+		kevin = 0;
 		WINS=0;
 		LOSES=0;
 		this.baseController = baseController;
@@ -156,6 +157,7 @@ public class RPSPanel extends JPanel
 							WINS ++;
 							WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 						}
+						 kevinChecker();
 					}
 					else
 					{
@@ -191,6 +193,7 @@ public class RPSPanel extends JPanel
 						WINS ++;
 						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
+					 kevinChecker();
 				}
 				else
 				{
@@ -228,6 +231,7 @@ public class RPSPanel extends JPanel
 						WINS ++;
 						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
+					 kevinChecker();
 				}
 				else
 				{
@@ -268,6 +272,7 @@ public class RPSPanel extends JPanel
 						LOSES ++;
 						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
+					 kevinChecker();
 				}
 			}
 			
@@ -301,6 +306,7 @@ public class RPSPanel extends JPanel
 						LOSES ++;
 						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
+					 kevinChecker();
 				}
 			}
 			
@@ -334,6 +340,7 @@ public class RPSPanel extends JPanel
 						LOSES ++;
 						WVL.setText ("WIN:" + WINS + " LOSES:" + LOSES);
 					}
+					 kevinChecker();
 				}
 			}
 			
@@ -372,6 +379,19 @@ public class RPSPanel extends JPanel
 	private void computerRANDOMNUMBER()
 	{
 		RANDOMRPC = (int) (Math.random() * 3);
+		kevin = (int) (Math.random() * 100);
+			if (kevin == 1)
+			{
+					Result.setText("IT'S A KEVIN");	
+			}
+	}
+		private void kevinChecker()
+	{
+	
+			if (kevin == 1)
+			{
+				Result.setText("IT'S A KEVIN");	
+			}
 	}
 }
 
